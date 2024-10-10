@@ -5,8 +5,8 @@
 wsreset -i
 ```
 <del>
-Старый вариант  
-Раньше использовал `LTSC-Add-MicrosoftStore-2019.zip`  
+Старый вариант  /
+Раньше использовал `LTSC-Add-MicrosoftStore-2019.zip`  \
 (MD5: B5FA5A65D85DB1C6533B5ABC4231CADE)  
 Скачал его отсюда: https://github.com/kkkgo/LTSC-Add-MicrosoftStore
 </del>
