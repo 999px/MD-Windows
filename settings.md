@@ -151,6 +151,7 @@ bcdboot C:\Windows /s S: /f UEFI
 ```
 
 
+
 ## 028. Покажет сколько процентов диска уже зашифровано/разшифровано
 *нужно лучше изучить тему*
 
@@ -162,62 +163,6 @@ manage-bde -status
 Расшифровывает том (Диск C:) и отключает защиту BitLocker:
 ```
 manage-bde -off C:
-```
-
-
-
-## 029. Выбор VHD при установке Windows (diskpart)
-`Shift+F10`
-
-```
-diskpart
-list volume
-select vdisk file="F:\win10.vhd"
-attach vdisk
-```
-
-
-
-## 030. Создание разделов через DISKPART
-```
-; для запуска Diskpart
-diskpart
-
-; посмотреть номера дисков и узнать номер нужного
-list disk
-
-; вместо X номер нужного диска
-select disk X
-
-; зачистить всю существующею таблицу разделов
-clean
-
-; По умолчанию новая таблица создается в формате MBR, но для десяточки на UEFI нужно в GPT.
-convert gpt
-
-; Создание специального EFI раздела размером в 100 МБ. Размеры всегда в МБ указывается
-create partition efi size=100
-
-; Быстрое форматирование его в файловую систему Fat32 и назначение метки "EFI"
-format quick fs=fat32 label="EFI"
-
-; Создание раздела под систему. Укажи сам нужный тебе размер в МБ вместо 122880
-create partition primary size=122880
-
-; Быстрое форматирование его в файловую систему NTFS и назначение метки
-format quick fs=ntfs label="PCNAME__SYSTEM"
-
-; Теперь создаешь второй раздел без указания размера и он просто создастся на всё не размеченное пространство
-create partition primary
-
-; Быстрое форматирование его в файловую систему NTFS и назначение метки
-format quick fs=ntfs label="PCNAME__DATA"
-
-; Посмотреть что получилось в итоге
-list partition
-
-; Выход из Diskpart
-exit
 ```
 
 
@@ -326,5 +271,58 @@ C:\Users\**USER_NAME**\AppData\Roaming  | `%APPDATA%`
 ********************************************************************************
 <br /><br /><br /><br /><br />
 
-# Настройки -- DISKPART ###################################################
+# Настройки -- DISKPART ########################################################
+- Но, Я создаю разделы через GParted (из Live Linux).
+- Вызод консоли на этапе установки Windows - `Shift + F10`
+- Чтобы в Windows показывал вместо 399 GB - 400 GB, я указываю размер раздела на 1 MB больше.
+
+
+## Создание разделов через Diskpart
+```batch
+DISKPART
+
+list disk
+
+rem Выбираем целевой диск (вместо X номер диска)
+select disk X
+
+rem Удаляем все данные с диска и переводим его в GPT
+clean
+convert gpt
+
+rem Создаём EFI раздел размером в 100MB и задаём ему букву "S"
+create partition efi size=100
+format quick fs=fat32 label="Rabbit-EFI"
+assign letter="S"
+
+rem Создаём системный раздел (DiskC) и задаём ему букву "W"
+create partition primary size=102401
+format quick fs=ntfs label="Rabbit-Win"
+assign letter="W"
+
+rem Создаём третий раздел (DiskD) для данных, занимающий всё оставшееся пространство
+create partition primary
+format quick fs=ntfs label="Rabbit-Data"
+
+rem Смотри что получилось в итоге
+list partition
+list volume
+
+exit
+```
+
+
+
+## 029. Выбор VHD при установке Windows (diskpart)
+```
+DISKPART
+
+list volume
+
+select vdisk file="F:\_VHD\win10-test.vhdx"
+attach vdisk
+```
+
+
+
 
