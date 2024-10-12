@@ -109,8 +109,9 @@ MANUAL BACKUP PROCESS:
    ```
 	
 3. Отключает среду восстановления Windows
-   ```
-   diskpart
+   ```batch
+   DISKPART
+   
    list volume
    select volume N
    delete partition override
@@ -314,7 +315,7 @@ exit
 
 
 ## 029. Выбор VHD при установке Windows (diskpart)
-```
+```batch
 DISKPART
 
 list volume
