@@ -4,7 +4,7 @@
 
 `SHIFT` + `F10`
 
-```powershell
+```Batch 
 DISKPART
 
 list disk
