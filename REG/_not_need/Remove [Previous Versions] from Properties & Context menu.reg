@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PreviousVersions]
+"DisableLocalPage"=dword:00000001
+"DisableRemotePage"=dword:00000001

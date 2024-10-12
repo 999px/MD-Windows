@@ -1,0 +1,9 @@
+Windows Registry Editor Version 5.00
+
+; 2024-10-02 // v1.3
+; Чтобы заработал на Win11, нужно сначала удалить новый UWP Notepad (+ для Win11 должен быть "UseFilter"=dword:00000000)
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe]
+"Debugger"="\"D:\\rtS\\Apps\\Notepad3-L\\Notepad3.exe\" /z"
+"UseFilter"=dword:00000000
+

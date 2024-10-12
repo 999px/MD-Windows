@@ -1,0 +1,29 @@
+Windows Registry Editor Version 5.00
+
+; Для Windows 10 LTSC 2021
+; 2024-08-12 // v1
+
+
+; A006
+; Группировать кнопки на панели задач: Никогда
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"TaskbarGlomLevel"=dword:00000002
+
+; A007
+; Всегда отображать все значки в области уведомлений: Вкл.
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
+"EnableAutoTray"=dword:00000000
+
+; A026
+; Показать цвет в заголовке окна: Вкл.
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM]
+"ColorPrevalence"=dword:00000001
+
+; C005
+; Показать кнопки панели задач: Панель задач, в которой открыто окно
+; Группировать кнопки на других панелях задач: НИКОГДА
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"MMTaskbarMode"=dword:00000002
+"MMTaskbarGlomLevel"=dword:00000002
+
+

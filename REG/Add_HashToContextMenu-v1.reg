@@ -1,0 +1,33 @@
+﻿Windows Registry Editor Version 5.00
+
+; Добавляет пункт "Получить Hash" (MD5, SHA-1, SHA-256) в контекстное меню для файлов
+; 2024-08-19 // v1
+
+
+[HKEY_CLASSES_ROOT\*\shell\Получить Hash]
+"subcommands"=""
+; "icon"="imageres.dll,249"
+
+[HKEY_CLASSES_ROOT\*\shell\Получить Hash\shell]
+
+
+[HKEY_CLASSES_ROOT\*\shell\Получить Hash\shell\MD5]
+"muiverb"="Показать MD5"
+
+[HKEY_CLASSES_ROOT\*\shell\Получить Hash\shell\MD5\command]
+@="cmd /c certutil -hashfile \"%1\" MD5 & pause"
+
+
+[HKEY_CLASSES_ROOT\*\shell\Получить Hash\shell\SHA1]
+"muiverb"="Показать SHA-1"
+
+[HKEY_CLASSES_ROOT\*\shell\Получить Hash\shell\SHA1\command]
+@="cmd /c certutil -hashfile \"%1\" SHA1 & pause"
+
+
+[HKEY_CLASSES_ROOT\*\shell\Получить Hash\shell\SHA256]
+"muiverb"="Показать SHA-256"
+
+[HKEY_CLASSES_ROOT\*\shell\Получить Hash\shell\SHA256\command]
+@="cmd /c certutil -hashfile \"%1\" SHA256 & pause"
+

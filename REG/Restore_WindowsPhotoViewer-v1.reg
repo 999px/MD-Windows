@@ -1,0 +1,24 @@
+Windows Registry Editor Version 5.00
+
+; Возвращаем классический Windows Photo Viewer для нижеперечисленных файлов
+; ‎2024-‎08-‎19 // v1
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations]
+".tif"="PhotoViewer.FileAssoc.Tiff"
+".tiff"="PhotoViewer.FileAssoc.Tiff"
+".jpg"="PhotoViewer.FileAssoc.Tiff"
+".png"="PhotoViewer.FileAssoc.Tiff"
+".jpeg"="PhotoViewer.FileAssoc.Tiff"
+".bmp"="PhotoViewer.FileAssoc.Tiff"
+".jpe"="PhotoViewer.FileAssoc.Tiff"
+".jfif"="PhotoViewer.FileAssoc.Tiff"
+".dib"="PhotoViewer.FileAssoc.Tiff"
+".gif"="PhotoViewer.FileAssoc.Tiff"
+
+".wdp"="PhotoViewer.FileAssoc.Tiff"
+".jxr"="PhotoViewer.FileAssoc.Tiff"
+".heic"="PhotoViewer.FileAssoc.Tiff"
+".heif"="PhotoViewer.FileAssoc.Tiff"
+".avif"="PhotoViewer.FileAssoc.Tiff"
+; ".webp"="PhotoViewer.FileAssoc.Tiff"
+
