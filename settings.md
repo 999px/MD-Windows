@@ -1,7 +1,9 @@
-- [x] 031 
+<!--
+- [x] 031
 - [x] 032
 - [x] 035
 - [x] 036
+-->
 
 
 
@@ -97,23 +99,23 @@ MANUAL BACKUP PROCESS:
 
 ## ★ 022. Удаление раздела восстановления (Recovery) Windows с диска
 1. Проверка состояния
-	```
-	reagentc /info
-	```
+   ```
+   reagentc /info
+   ```
     
 2. После отключения среды восстановления, его раздел можно удалить так:
-	```
-	reagentc /disable
-	```
+   ```
+   reagentc /disable
+   ```
 	
 3. Отключает среду восстановления Windows
-	```
-	diskpart
-	list volume
-	select volume N
-	delete partition override
-	exit
-	```
+   ```
+   diskpart
+   list volume
+   select volume N
+   delete partition override
+   exit
+   ```
 
 
 
@@ -138,14 +140,14 @@ select volume N
 format fs=fat32
 ```
 
-Присвоение буквы Z этому разделу:
+Присвоение буквы "S" этому разделу:
 ```
-assign letter=Z
+assign letter=S
 ```
 
 Скопировать туда загрузчик:
 ```
-bcdboot C:\Windows /s Z: /f UEFI
+bcdboot C:\Windows /s S: /f UEFI
 ```
 
 
@@ -262,8 +264,9 @@ DISKPART
 
 # Отключение служб (services.msc) ##############################################
 
-### Сервер | LanmanServer -> **Отключить** (по умолчанию: Автоматически)
-Другие компьютеры не смогут подключаться к твоим общим папкам и принтерам.
+### Сервер | LanmanServer
+- **Отключить** (по умолчанию: Автоматически)
+	- Другие компьютеры не смогут подключаться к твоим общим папкам и принтерам.
 
 
 
@@ -315,4 +318,13 @@ C:\Users\**USER_NAME**\AppData\Roaming  | `%APPDATA%`
 Имя_Пользователя                        | `C:\Users\%USERNAME%`
 ```
 
+
+
+
+
+
+********************************************************************************
+<br /><br /><br /><br /><br />
+
+# Настройки -- DISKPART ###################################################
 
