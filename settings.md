@@ -309,10 +309,10 @@ DISKPART
 
 
 ### 026. Windows переменная среда
-|-----------------------------------------|-----------------------|
-| C:\Users\**USER_NAME**                  | `%USERPROFILE%`       |
-| C:\Users\**USER_NAME**\AppData\Roaming  | `%APPDATA%`           |
-| Имя пользователя:                       | `C:\Users\%USERNAME%` |
+
+C:\Users\**USER_NAME**                  | `%USERPROFILE%`
+C:\Users\**USER_NAME**\AppData\Roaming  | `%APPDATA%` 
+Имя пользователя:                       | `C:\Users\%USERNAME%` 
 
 
 
