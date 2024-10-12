@@ -17,7 +17,7 @@ reg.exe add HKLM\SYSTEM\CurrentControlSet\Services\storahci\Parameters\Device /f
 Вместо XXX - нужно написать "Bus Number".
 
 
-<br><br>
+<br>
 ## ★ 004b. Активация, деактивация и отображение сведений о лицензии Windows
 Устанавливает новый ключ
 ```
@@ -47,7 +47,7 @@ https://philka.ru/forum/topic/47487-aktivatciia-windows-10-7-8-81-vse-redaktcii-
 ***
 
 
-<br><br>
+<br>
 ## 016. Установка Windows 11 на несовместимый компьютер
 Нажимаем `Shift+F10`, вызываем `regedit` и:
 ```
@@ -62,7 +62,7 @@ Windows Registry Editor Version 5.00
 ```
 
 
-<br><br>
+<br>
 ## 017. Локальная учетная запись Windows 11 при установке
 Нажимаем `Shift+F10` и вводим:
 ```
@@ -72,7 +72,7 @@ oobe\bypassnro
 После нажатия ENTER компьютер перезагрузиться и появиться возможность создать локальную учётную запись.
 
 
-<br><br>
+<br>
 ## 018. Как скачать оригинальный ISO Windows 10, Windows 11 с сайта Майкрософт без программ
 Нужно поменять Useragent на "мобильный".
 - https://www.microsoft.com/ru-ru/software-download/windows10
@@ -82,7 +82,7 @@ oobe\bypassnro
 - https://nnmclub.to/forum/viewforum.php?f=504
 
 
-<br><br>
+<br>
 ## ★ 021. Сохранить резервную копию активации Windows и Office можно ручным способом
 *ещё не проверял*
 
@@ -96,7 +96,7 @@ MANUAL BACKUP PROCESS:
 7. Done.
 
 
-<br><br>
+<br>
 ## ★ 022. Удаление раздела восстановления (Recovery) Windows с диска
 1. Проверка состояния
    ```
@@ -119,7 +119,7 @@ MANUAL BACKUP PROCESS:
    ```
 
 
-<br><br>
+<br>
 ## 023. Проверка системных файлов Windows
 `sfc /scannow`
 Эта команда выполнит проверку целостности всех системных файлов Windows и попытается их исправить в том случае, если были обнаружены какие-либо ошибки.
@@ -131,7 +131,7 @@ https://remontka.pro/sfc-scannow/
 они вроде проверяю системный файлы онлайн
 
 
-<br><br>
+<br>
 ## 024. восстановление загрузчика windwos
 *ещё не всё изучил и проверил*
 
@@ -152,7 +152,7 @@ bcdboot C:\Windows /s S: /f UEFI
 ```
 
 
-<br><br>
+<br>
 ## 028. Покажет сколько процентов диска уже зашифровано/разшифровано
 *нужно лучше изучить тему*
 
@@ -167,7 +167,7 @@ manage-bde -off C:
 ```
 
 
-<br><br>
+<br>
 ## 033. Не подключить автоматический внутренние диски (нужен для Windows 2 Go)
 DISKPART
 
@@ -182,7 +182,7 @@ DISKPART
 
 
 
-<br><br>
+<br>
 ## 034. Внесение изменении в offline реестр (реестр другой НЕ загруженной системы)
 - В `regedit` выбираем `HKEY_LOCAL_MACHINE`
 - В меню выбираем `Файл` → `Загрузить куст...`
