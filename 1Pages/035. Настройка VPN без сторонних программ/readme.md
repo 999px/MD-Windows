@@ -4,9 +4,9 @@
 ---
 
 - **Поставщик услуг VPN:** `Windows (встроенные)`
-- **Имя подключения:** любое, например - `VPN hidemy.name - KZ` ****
-- **Имя или адрес сервера:** IP адрес сервера
-  https://hidemy.name/api/pptp.php?serverlist
+- **Имя подключения:** любое, например - `VPN hidemy.name - KZ`
+- **Имя или адрес сервера:** IP адрес сервера  
+  ( взять отсюда: https://hidemy.name/api/pptp.php?serverlist )
 - **Тип VPN:** `L2TP/IPsec с общим ключом`
 - **Общий ключ:** для hidemy.name `incloaknetwork`
 - **Тип данных для входа:** `Имя пользователя и пароль`
