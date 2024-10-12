@@ -316,3 +316,9 @@ C:\Users\**USER_NAME**\AppData\Roaming  | `%APPDATA%`
 
 
 
+C:\Users\USER_NAME | %USERPROFILE%
+C:\Users\USER_NAME\AppData\Roaming | %APPDATA%
+C:\Users\USER_NAME | %USERNAME%
+
+
+
