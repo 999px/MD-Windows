@@ -15,7 +15,7 @@ reg.exe add HKLM\SYSTEM\CurrentControlSet\Services\storahci\Parameters\Device /f
 ```
 
 Вместо XXX - нужно написать "Bus Number".
-<br />
+<br /><br />
 
 
 ## ★ 004b. Активация, деактивация и отображение сведений о лицензии Windows
