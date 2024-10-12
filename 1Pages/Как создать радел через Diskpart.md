@@ -4,7 +4,7 @@
 
 `SHIFT` + `F10`
 
-```shell 
+```batch
 DISKPART
 
 list disk
