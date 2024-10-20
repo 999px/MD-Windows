@@ -1,7 +1,8 @@
-# 035. Настройка VPN без сторонних программ
+# Настройка VPN без сторонних программ
 
 - https://hidemy.name/faq/vpn/vpn-installation-and-configuration/without-applications/windows/l2tp/
----
+
+***
 
 - **Поставщик услуг VPN:** `Windows (встроенные)`
 - **Имя подключения:** любое, например - `VPN hidemy.name - KZ`

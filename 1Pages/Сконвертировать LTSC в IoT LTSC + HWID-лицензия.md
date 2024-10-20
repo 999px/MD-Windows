@@ -1,6 +1,7 @@
-# 036. Как сконвертировать LTSC в IoT LTSC и обеспечить ей HWID-лицензию
+# Сконвертировать LTSC в IoT LTSC + HWID-лицензия
 
 - https://windows64.net/453-windows-10-iot-ltsc-hwid.html
+
 ***
 
 

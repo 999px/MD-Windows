@@ -1,4 +1,4 @@
-# 032. Как удалить System Volume Information с флешки
+# Как удалить System Volume Information с флешки
 - https://remontka.pro/system-volume-information-usb-flash/
 ***
 

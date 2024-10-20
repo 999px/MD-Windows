@@ -1,3 +1,5 @@
+# Установка Windows на внешний (или любой другой) диск через DISM
+
 - https://www.isumsoft.com/windows-10/make-external-hard-drive-bootable-windows-10.html
 - https://www.bootdev.ru/2018/07/Installing-Windows-on-USB-drive.html
 ***
