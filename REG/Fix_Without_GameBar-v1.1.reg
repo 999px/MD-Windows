@@ -1,0 +1,55 @@
+Windows Registry Editor Version 5.00
+
+; https://www.reddit.com/r/WindowsHelp/comments/108ngxr/properly_uninstalling_xbox_gamebar_and_resolve/
+; https://www.techpowerup.com/forums/threads/windows-11-general-discussion.284164/page-220
+; https://win10tweaker.ru/forum/topic/ms-gamebar
+
+; 2024-10-27 // v1.1
+; Для Windows 11 24H2 LTSC где нет GameBar, но есть нижеперечисленные следы.
+
+
+; После выходы из некоторых игр в Windows 11 LTSC выходит окошка:
+; >> Получите приложение, чтобы открыть эту ссылку "ms-gamingoverlay" <<
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR]
+"AppCaptureEnabled"=dword:00000000
+;"NoWinKeys"=dword:00000001
+
+[HKEY_CURRENT_USER\System\GameConfigStore]
+"GameDVR_Enabled"=dword:00000000
+;"GameDVR_FSEBehaviorMode"=dword:00000002 
+
+
+; *****************************************
+
+
+; При подключении геймпада выходит окошко (сразу же при повторном подключении - нет):
+; >> Получите приложение, чтобы открыть эту ссылку "ms-gamebar" <<
+
+; Чтобы вернуть как было, просто удалить:
+; HKEY_LOCAL_MACHINE\SOFTWARE\Classes\ms-gamebar
+; HKEY_LOCAL_MACHINE\SOFTWARE\Classes\ms-gamebarservices
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\ms-gamebar]
+@="URL:ms-gamebar"
+"NoOpenWith"=""
+"URL Protocol"=""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\ms-gamebar\shell\open\command]
+; @="%SystemRoot%\\System32\\systray.exe"
+; @=""
+
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\ms-gamebarservices]
+@="URL:ms-gamebarservices"
+"NoOpenWith"=""
+"URL Protocol"=""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\ms-gamebarservices\shell\open\command]
+; @="%SystemRoot%\\System32\\systray.exe"
+; @=""
+
+
+
+
+
