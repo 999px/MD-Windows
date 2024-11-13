@@ -1,44 +1,58 @@
 # Установка-Активация Windows
 
 ## Общее
+
 - **TPM** - Отключить
 - **Secure Boot** - Включить
 - Размер раздела указываю на 1MB больше, чтобы было 100GB вместо 99.9GB
 
 
 
-## Вариант 1 - Обычная установка
-1. **Новый установщик** Windows 11 24H2 автоматический создаёт **MSR-раздел** (msftres).  
-   ![img](i/003.png)   
-   Но можно выбрать `Предыдущая версия настройки` и откроеться **старый установщик**, он автоматический не создаёт **MSR-раздел**.
+<br /><br />
+## Обычная установка
 
-2. В начале установки Windows 11, запускаем файл `Win11-InstallNoTPM.reg`, чтобы обойти ограничение TPM.
-   - **Win11-InstallNoTPM.reg**
-     ```
-     Windows Registry Editor Version 5.00
-     
-     ; Файл нужно запустить во время установки Windows, чтобы обойти нижеперечисленные ограничение.
-     ; 2024-10-03 // v1
-     
-     [HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig]
-     "BypassTPMCheck"=dword:00000001
-     ;"BypassCPUCheck"=dword:00000001
-     ;"BypassSecureBootCheck"=dword:00000001
-     ;"BypassRAMCheck"=dword:00000001
-     ;"BypassStorageCheck"=dword:00000001
-     ```
- 
-3. Сразу после установки во время OOBE (первоначальной настройки) конвертирует "LTSC" в "IoT LTSC".
+- Создаём разделы через **Gparted**  
+  ![img](i/004.jpg)
+
+- В **новом устновщике** Windows 11 24H2 выбрать --> `Предыдущая версия настройки`  
+  (новый установщик автоматический создаёт **MSR-раздел** (msftres)).
+
+- В начале установки Windows 11, запускаем файл `Win11-InstallNoTPM.reg`, чтобы обойти ограничение TPM.
+  - **Win11-InstallNoTPM.reg**
+    ```
+    Windows Registry Editor Version 5.00
+    
+    ; Файл нужно запустить во время установки Windows, чтобы обойти нижеперечисленные ограничение.
+    ; 2024-10-03 // v1
+    
+    [HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig]
+    "BypassTPMCheck"=dword:00000001
+    ;"BypassCPUCheck"=dword:00000001
+    ;"BypassSecureBootCheck"=dword:00000001
+    ;"BypassRAMCheck"=dword:00000001
+    ;"BypassStorageCheck"=dword:00000001
+    ```
+
+- Если нужно установить на **VHD**, то:
+  ```
+  DISKPART
+  
+  list vol
+  
+  select vdisk file="F:\_VHD\Win11ltsc.vhdx"
+  attach vdisk
+  ```
+
+- Сразу после установки, во время OOBE (первоначальной настройки) конвертируем "LTSC" в "IoT LTSC".
 
 
 
-## Вариант 2 - через DISM
-1. Через GParted создаём нужные разделы:  
-   ![img](i/004.jpg)
+<br /><br />
+## Или через DISM
 
-2. Запускаем установщик Windows и сразу нажимает `Shift + F10`.  
-   Назначаем буквы для дисков: `"EFI" --> S` , `"Disk C" --> W`.
-   ```batch
+1. Запускаем установщик Windows и сразу нажимает `Shift + F10`.  
+   Назначаем буквы для дисков: **"EFI" --> S** , **"Disk C" --> W**.
+   ```
    DISKPART
    
    list disk
@@ -55,58 +69,49 @@
    exit
    ```
 
-3. **install.wim** - на установочном диске, путь к WIM-файлу `F:\sources\install.wim`.
+2. **install.wim** - на установочном диске ( `F:\sources\install.wim` ).
    
-   - Получаем информацию о всех доступных **индексах** в образе `install.wim`:
-     ```
-     dism /get-imageinfo /imagefile:"F:\sources\install.wim"
-     ```
-     
-   - Указываем нужный **индекс** (index) и **букву диска** (applydir) где будет установлен Windows:
-     ```
-     dism /apply-image /imagefile:"F:\sources\install.wim" /index:4 /applydir:W:\
-     ```
-     
-   - Создаём EFI на EFI разделе:
-     ```
-     bcdboot W:\Windows /s S: /f UEFI
-     ```
+3. Получаем информацию о всех доступных **индексах** в образе `install.wim`:
+   ```
+   dism /get-imageinfo /imagefile:"F:\sources\install.wim"
+   ```
 
-3. Конвертирует "LTSC" --> "IoT LTSC" (желательно ещё во время OOBE)
+4. Указываем нужный **индекс** (index) и **букву диска** (applydir) где будет установлен Windows:
+   ```
+   dism /apply-image /imagefile:"F:\sources\install.wim" /index:4 /applydir:W:\
+   ```
+
+5. Создаём EFI на EFI разделе:
+   ```
+   bcdboot W:\Windows /s S: /f UEFI
+   ```
 
 
 
-
-
-*********************************
 <br /><br />
-
-
 ## Конвертация LTSC --> IoT LTSC
-1. Устанавливаем **Windows LTSC**.
-2. Сразу после установке во время OOBE (первоначальной настройки), (хотя можно и потом) вводим:
 
-   - для Windows 10 LTSC 21H2 - *(IoT Enterprise LTSC 2021 / IoTEnterpriseS)*
-     ```batch
-     slmgr.vbs -ipk QPM6N-7J2WJ-P88HH-P3YRH-YY74H
-     ```
+Сразу после установке, во время OOBE (первоначальной настройки), (хотя можно и потом) вводим:
+
+- для Windows 10 LTSC 21H2 - *(IoT Enterprise LTSC 2021 / IoTEnterpriseS)*
+  ```
+  slmgr.vbs -ipk QPM6N-7J2WJ-P88HH-P3YRH-YY74H
+  ```
    
-   - для Windows 11 LTSC 24H2 - *(IoT Enterprise LTSC 2024 / IoTEnterpriseS)*
-     ```batch
-     slmgr.vbs -ipk CGK42-GYN6Y-VD22B-BX98W-J8JXD
-     ```
+- для Windows 11 LTSC 24H2 - *(IoT Enterprise LTSC 2024 / IoTEnterpriseS)*
+  ```
+  slmgr.vbs -ipk CGK42-GYN6Y-VD22B-BX98W-J8JXD
+  ```
 
-3. Затем нужно активизировать систему **HWID активатором**.
-
-Если вы будете переустанавливать систему, то точно так же установитье **LTSC** и сконвертируйте в **IoT LTSC**,
-НО активатор уже использовать не нужно будет. Система активируется сама, после ввода этого ключа и подключении к интернету.
+NB! Первый раз, на новом ПК, нужно активировать систему через **HWID активатором**.
 
 - https://massgrave.dev/hwid
 - https://windows64.net/453-windows-10-iot-ltsc-hwid.html
 
 
 
-## Активация - **HWID Activation**
+<br /><br />
+## Активация - HWID Activation (только один раз)
 Если цифровая лицензию уже есть (или другая нужная лицензия) - пропускаем.  
 Если нет, будем использовать **MAS** - https://massgrave.dev/
 
