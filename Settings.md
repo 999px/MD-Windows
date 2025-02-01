@@ -256,6 +256,20 @@ C:\Users\**USER_NAME**\AppData\Roaming  | `%APPDATA%`
 ```
 
 
+### Добавление разделителя в классическое "контекст меню"
+Пример:
+```
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\Получить Hash]
+"SeparatorBefore"=""
+"SeparatorAfter"=""
+```
+
+
+
+
+
 
 
 
