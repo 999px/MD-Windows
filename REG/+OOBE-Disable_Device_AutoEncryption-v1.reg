@@ -1,0 +1,14 @@
+Windows Registry Editor Version 5.00
+
+; Отключает автоматическое шифрование BitLocker в Windows.
+; 2025-02-06 // v1
+
+; Как предотвратить шифрование?
+; Вручную на этапе OOBE (экране с выбором региона) нажмите Shift + F10 и запустите этот файл.
+
+; https://outsidethebox.ms/22452/#0233
+
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\BitLocker]
+"PreventDeviceEncryption"=dword:00000001
+
