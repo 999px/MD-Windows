@@ -65,7 +65,7 @@ Remove-AppxPackage <PackageFullName>
 
 > Без этого не открываются картинки .avif
 
-> Win10 - нужен; Win11 - ???;
+> Win10 - нужен; Win11 - нужен;
 ```
 
 ```markdown
