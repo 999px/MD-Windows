@@ -93,7 +93,7 @@ Remove-AppxPackage <PackageFullName>
 
 > Без этого не открываются картинки .webp
 
-> Win10 - нужен; Win11 - ???;
+> Win10 - нужен; Win11 - нужен;
 ```
 
 ## Программы
