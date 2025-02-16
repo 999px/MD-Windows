@@ -53,7 +53,7 @@ Remove-AppxPackage <PackageFullName>
 > для .heic так же нужен **HEVC Video Extensions from Device Manufacturer**
 > для .avif - **AV1 Video Extension**
 
-> Win10 - нужен; Win11 - ???;
+> Win10 - нужен; Win11 - нужен;
 ```
 
 ```markdown
@@ -78,11 +78,10 @@ Remove-AppxPackage <PackageFullName>
 
 > Без этого не открываются картинки .heic
 > Устанавливаем .appx и потом уже обновляем из MS Store
+> Microsoft.HEVCVideoExtension_1.0.33242.0_x64__8wekyb3d8bbwe.appx
 
-> Win10 - нужен; Win11 - ???;
+> Win10 - нужен; Win11 - нужен;
 ```
-
-Microsoft.HEVCVideoExtension_1.0.33242.0_x64__8wekyb3d8bbwe.appx
 
 ```markdown
 ### Расширения для изображений Webp
