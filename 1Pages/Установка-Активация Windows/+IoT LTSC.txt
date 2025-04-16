@@ -1,0 +1,7 @@
+IoT Enterprise LTSC 2024
+slmgr.vbs -ipk CGK42-GYN6Y-VD22B-BX98W-J8JXD
+
+
+IoT Enterprise LTSC 2021
+slmgr.vbs -ipk QPM6N-7J2WJ-P88HH-P3YRH-YY74H
+
