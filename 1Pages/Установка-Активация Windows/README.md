@@ -1,7 +1,6 @@
 # Установка-Активация Windows
 
 ## Общее
-
 - **TPM** - Отключить
 - **Secure Boot** - Включить
 - Размер раздела указываю на 1MB больше, чтобы было 100GB вместо 99.9GB
@@ -10,28 +9,13 @@
 
 <br /><br />
 ## Обычная установка
-
 1. Создаём разделы через **Gparted** - [IMG](i/004.jpg)
 
 2. В **новом устновщике** Windows 11 24H2 выбрать --> `Предыдущая версия настройки`  
-   *(новый установщик автоматический создаёт **MSR-раздел** (msftres)).*
+   *(новый установщик автоматический создаёт **MSR-раздел** (msftres))*
 
-3. В начале установки Windows 11, запускаем файл `+Win11-InstallNoTPM-v1.reg`  
+3. В начале установки Windows 11, запускаем файл [+Win11-InstallNoTPM-v1.reg](+Win11-InstallNoTPM-v1.reg)  
    *(чтобы обойти ограничение TPM)*
-   - **Win11-InstallNoTPM.reg**
-     ```
-     Windows Registry Editor Version 5.00
-
-     ; Файл нужно запустить во время установки Windows, чтобы обойти нижеперечисленные ограничение.
-     ; 2024-10-03 // v1
-
-     [HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig]
-     "BypassTPMCheck"=dword:00000001
-     ;"BypassCPUCheck"=dword:00000001
-     ;"BypassSecureBootCheck"=dword:00000001
-     ;"BypassRAMCheck"=dword:00000001
-     ;"BypassStorageCheck"=dword:00000001
-     ```
 
 4. Во время OOBE (первоначальной настройки) конвертируем "LTSC" в "IoT LTSC".
 
