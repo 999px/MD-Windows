@@ -17,7 +17,7 @@
 2. В **новом устновщике** Windows 11 24H2 выбрать --> `Предыдущая версия настройки`  
    *(новый установщик автоматический создаёт **MSR-раздел** (msftres)).*
 
-3. В начале установки Windows 11, запускаем файл `Win11-InstallNoTPM.reg`  
+3. В начале установки Windows 11, запускаем файл `+Win11-InstallNoTPM-v1.reg`  
    *(чтобы обойти ограничение TPM)*
    - **Win11-InstallNoTPM.reg**
      ```
@@ -34,6 +34,27 @@
      ;"BypassStorageCheck"=dword:00000001
      ```
 
+4. Во время OOBE (первоначальной настройки) конвертируем "LTSC" в "IoT LTSC".
+
+5. **+OOBE-Disable_Device_AutoEncryption-v1.reg**  
+   ```
+   Windows Registry Editor Version 5.00
+
+   ; Отключает автоматическое шифрование BitLocker в Windows.
+   ; 2025-02-06 // v1
+
+   ; Как предотвратить шифрование?
+   ; Вручную на этапе OOBE (экране с выбором региона) нажмите Shift + F10 и запустите этот файл.
+
+   ; https://outsidethebox.ms/22452/#0233
+
+
+   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\BitLocker]
+   "PreventDeviceEncryption"=dword:00000001
+   ```
+
+
+
 - Если нужно установить на **VHD**, то:
   ```
   DISKPART
@@ -44,7 +65,7 @@
   attach vdisk
   ```
 
-- Сразу после установки, во время OOBE (первоначальной настройки) конвертируем "LTSC" в "IoT LTSC".
+
 
 
 
