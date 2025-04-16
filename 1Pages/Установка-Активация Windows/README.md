@@ -10,10 +10,9 @@
 
 <br /><br />
 ## Обычная установка
-
-- <details><summary>Создаём разделы через **Gparted**</summary>
-  ![img](i/004.jpg)
-  </details>
+<details><summary>Создаём разделы через **Gparted**</summary>
+![img](i/004.jpg)
+</details>
 
 
 
