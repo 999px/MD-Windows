@@ -17,21 +17,22 @@
 2. В **новом устновщике** Windows 11 24H2 выбрать --> `Предыдущая версия настройки`  
    *(новый установщик автоматический создаёт **MSR-раздел** (msftres)).*
 
-- В начале установки Windows 11, запускаем файл `Win11-InstallNoTPM.reg`, чтобы обойти ограничение TPM.
-  - **Win11-InstallNoTPM.reg**
-    ```
-    Windows Registry Editor Version 5.00
-    
-    ; Файл нужно запустить во время установки Windows, чтобы обойти нижеперечисленные ограничение.
-    ; 2024-10-03 // v1
-    
-    [HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig]
-    "BypassTPMCheck"=dword:00000001
-    ;"BypassCPUCheck"=dword:00000001
-    ;"BypassSecureBootCheck"=dword:00000001
-    ;"BypassRAMCheck"=dword:00000001
-    ;"BypassStorageCheck"=dword:00000001
-    ```
+3. В начале установки Windows 11, запускаем файл `Win11-InstallNoTPM.reg`  
+   *(чтобы обойти ограничение TPM)*
+   - **Win11-InstallNoTPM.reg**
+     ```
+     Windows Registry Editor Version 5.00
+
+     ; Файл нужно запустить во время установки Windows, чтобы обойти нижеперечисленные ограничение.
+     ; 2024-10-03 // v1
+
+     [HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig]
+     "BypassTPMCheck"=dword:00000001
+     ;"BypassCPUCheck"=dword:00000001
+     ;"BypassSecureBootCheck"=dword:00000001
+     ;"BypassRAMCheck"=dword:00000001
+     ;"BypassStorageCheck"=dword:00000001
+     ```
 
 - Если нужно установить на **VHD**, то:
   ```
