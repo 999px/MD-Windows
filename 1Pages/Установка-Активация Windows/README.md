@@ -18,10 +18,10 @@
    [+Win11-InstallNoTPM-v1.reg](+Win11-InstallNoTPM-v1.reg)  
    *(чтобы обойти ограничение TPM)*
 
-4. Во время OOBE (первоначальной настройки) - конвертируем "LTSC" в "IoT LTSC".
+4. Во время OOBE (первоначальной настройки) - конвертируем "LTSC" в "IoT LTSC".  
    [+IoT_LTSC.md](+IoT_LTSC.md)
 
-5. Во время OOBE - отключаем автоматическое шифрование дисков:
+5. Во время OOBE - отключаем автоматическое шифрование дисков:  
    [+OOBE-Disable_Device_AutoEncryption-v1.reg](+OOBE-Disable_Device_AutoEncryption-v1.reg)
 
 
