@@ -14,27 +14,15 @@
 2. В **новом устновщике** Windows 11 24H2 выбрать --> `Предыдущая версия настройки`  
    *(новый установщик автоматический создаёт **MSR-раздел** (msftres))*
 
-3. В начале установки Windows 11, запускаем файл [+Win11-InstallNoTPM-v1.reg](+Win11-InstallNoTPM-v1.reg)  
+3. В начале установки Windows 11, запускаем файл:
+   [+Win11-InstallNoTPM-v1.reg](+Win11-InstallNoTPM-v1.reg)  
    *(чтобы обойти ограничение TPM)*
 
-4. Во время OOBE (первоначальной настройки) конвертируем "LTSC" в "IoT LTSC".
+4. Во время OOBE (первоначальной настройки) - конвертируем "LTSC" в "IoT LTSC".
+   [+IoT LTSC.md](+IoT LTSC.md)
 
-5. **+OOBE-Disable_Device_AutoEncryption-v1.reg**  
-   ```
-   Windows Registry Editor Version 5.00
-
-   ; Отключает автоматическое шифрование BitLocker в Windows.
-   ; 2025-02-06 // v1
-
-   ; Как предотвратить шифрование?
-   ; Вручную на этапе OOBE (экране с выбором региона) нажмите Shift + F10 и запустите этот файл.
-
-   ; https://outsidethebox.ms/22452/#0233
-
-
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\BitLocker]
-   "PreventDeviceEncryption"=dword:00000001
-   ```
+5. Во время OOBE - отключаем автоматическое шифрование дисков:
+   [+OOBE-Disable_Device_AutoEncryption-v1.reg](+OOBE-Disable_Device_AutoEncryption-v1.reg)
 
 
 
@@ -96,25 +84,8 @@ attach vdisk
 
 
 
-<br /><br />
-## Конвертация LTSC --> IoT LTSC
 
-Сразу после установке, во время OOBE (первоначальной настройки), (хотя можно и потом) вводим:
 
-- для Windows 10 LTSC 21H2 - *(IoT Enterprise LTSC 2021 / IoTEnterpriseS)*
-  ```
-  slmgr.vbs -ipk QPM6N-7J2WJ-P88HH-P3YRH-YY74H
-  ```
-   
-- для Windows 11 LTSC 24H2 - *(IoT Enterprise LTSC 2024 / IoTEnterpriseS)*
-  ```
-  slmgr.vbs -ipk CGK42-GYN6Y-VD22B-BX98W-J8JXD
-  ```
-
-NB! Первый раз, на новом ПК, нужно активировать систему через **HWID активатором**.
-
-- https://massgrave.dev/hwid
-- https://windows64.net/453-windows-10-iot-ltsc-hwid.html
 
 
 
