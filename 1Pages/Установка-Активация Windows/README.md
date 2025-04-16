@@ -55,15 +55,18 @@
 
 
 
-- Если нужно установить на **VHD**, то:
-  ```
-  DISKPART
-  
-  list vol
-  
-  select vdisk file="F:\_VHD\Win11ltsc.vhdx"
-  attach vdisk
-  ```
+
+
+<br /><br />
+## Если нужно установить на **VHD**
+```
+DISKPART
+
+list vol
+
+select vdisk file="F:\_VHD\Win11ltsc.vhdx"
+attach vdisk
+```
 
 
 
